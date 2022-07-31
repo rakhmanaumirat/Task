@@ -47,7 +47,13 @@ module.exports = {
           "Chicago Advertising Agency | The Designory",
           "Contact | Designory",
           "Designory News & Awards | Designory"],
-        defaultCity: "CHICAGO"
+        defaultCity: "CHICAGO",
+        chicago: "CHICAGO",
+        chicagoCode: "CHI",
+        chicagoPhone: "Phone: +1 312 729 4500",
+        h1Text: "At such great heights.",
+        font40: "40px",
+        chicagoURL: "http://maps.google.com/?q= 225 N Michigan Ave, Suite 2100 Chicago, IL 60601"
       },
 
       screenshots: {
@@ -58,9 +64,9 @@ module.exports = {
 
       desiredCapabilities: {
         browserName: 'chrome',
-        chromeOptions: {
-          "args": ["window-size=1920,1080"]
-        },
+        // chromeOptions: {
+        //   "args": ["window-size=1920,1080"]
+        // },
       },
 
       webdriver: {

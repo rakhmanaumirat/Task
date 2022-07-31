@@ -1,7 +1,8 @@
 module.exports = {
-    before: function (browser) {
+    before: async function (browser) {
         console.log('Setting up...')
         browser.page.home().navigate()
+        await browser.windowMaximize()
     },
 
     "Menu Verification": async function (browser) {
