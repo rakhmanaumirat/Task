@@ -39,7 +39,7 @@ const homePageCommands = {
         this
             .waitForElementVisible("xpath", locator, 2000)
             .click("xpath", locator)
-        if (menuOption === "LOCATIONS") {
+        if (menuOption === browser.globals.locations) {
             const defaultCity = browser.globals.defaultCity
             const cityLocator = "//a[text()='" + defaultCity + "']"
             this
@@ -50,9 +50,10 @@ const homePageCommands = {
     },
 
     compareMenuOptions: async function (actual, expected) {
+        const helper = browser.page.helper()
         let returnBoolean = true
         for (let option of actual) {
-            let result = await this.checkArraysEqual(option, expected)
+            let result = await helper.checkArraysEqual(option, expected)
             if (result == false) {
                 returnBoolean = false
                 return false
@@ -61,17 +62,14 @@ const homePageCommands = {
         return returnBoolean
     },
 
-    checkArraysEqual: async function (a, b) {
-        return JSON.stringify(a) === JSON.stringify(b)
-    },
-
     getMenuOptionsFromAllPages: async function (menuOptions) {
+        const helper = browser.page.helper()
         let returnBoolean = true
         for (let option of menuOptions) {
             await this.openMenuToggle()
             this.navigateTo(option)
             let actualOptions = await this.getAllMenuOptions(menuOptions)
-            let result = await this.checkArraysEqual(menuOptions, actualOptions)
+            let result = await helper.checkArraysEqual(menuOptions, actualOptions)
             if (result == false) {
                 returnBoolean = false
                 return false
@@ -119,6 +117,7 @@ const homePageCommands = {
 }
 
 module.exports = {
+
     url: 'https://www.designory.com',
 
     commands: [homePageCommands],

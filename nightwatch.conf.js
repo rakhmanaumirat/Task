@@ -48,12 +48,15 @@ module.exports = {
           "Contact | Designory",
           "Designory News & Awards | Designory"],
         defaultCity: "CHICAGO",
+        locations: "LOCATIONS",
         chicago: "CHICAGO",
         chicagoCode: "CHI",
         chicagoPhone: "Phone: +1 312 729 4500",
         h1Text: "At such great heights.",
         font40: "40px",
-        chicagoURL: "http://maps.google.com/?q= 225 N Michigan Ave, Suite 2100 Chicago, IL 60601"
+        chicagoURL: "http://maps.google.com/?q= 225 N Michigan Ave, Suite 2100 Chicago, IL 60601",
+        scrollIntoView: 'footerElements[0].scrollIntoView(true);',
+        cityInfoClass: "rte spacing-right"
       },
 
       screenshots: {

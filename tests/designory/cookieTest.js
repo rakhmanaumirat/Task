@@ -5,6 +5,7 @@ module.exports = {
         await browser.windowMaximize()
     },
 
+    '@tags': ['cookie', 'smoke', 'regression'],
     'Cookie Verification': function (browser) {
         const homePage = browser.page.home()
 

@@ -5,6 +5,7 @@ module.exports = {
         await browser.windowMaximize()
     },
 
+    '@tags': ['location', 'smoke', 'regression'],
     'Location Verification': async function (browser) {
         const locationsPage = browser.page.locations()
 

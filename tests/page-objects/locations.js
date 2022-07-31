@@ -18,8 +18,8 @@ const locationsPageCommands = {
     },
 
     showCityAddress: function () {
-        browser.execute('var footerElements = document.getElementsByClassName("rte spacing-right");' +
-            'footerElements[0].scrollIntoView(true);')
+        const helper = browser.page.helper()
+        helper.scrollIntoViewByClassName(browser.globals.cityInfoClass)
         return this
     },
 
