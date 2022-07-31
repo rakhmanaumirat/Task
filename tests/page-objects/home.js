@@ -28,7 +28,7 @@ const homePageCommands = {
             this.navigateTo(option)
             let actualOptions = await this.getAllMenuOptions(menuOptions)
             options.push(actualOptions)
-            let title = await this.getTitle(function (title) { return title });
+            let title = await this.getTitle(function (title) { return title })
             titles.push(title)
         }
         return [options, titles]
@@ -93,7 +93,29 @@ const homePageCommands = {
         await this.openMenuToggle()
         this.navigateTo(menuOption)
         return await this.getTitle(function (title) { return title });
-    }
+    },
+
+    acceptCookies: function () {
+        this.waitForElementVisible('@cookieWindow')
+        this.click('@acceptCookie')
+        this.waitForElementNotVisible('@cookieWindow')
+        browser.refresh()
+        return this
+    },
+
+    deleteAllCookies: function () {
+        browser.deleteCookies()
+        browser.refresh()
+        return this
+    },
+
+    cookieWindowIsNotPresent: function () {
+        return this.waitForElementNotPresent('@cookieWindow')
+    },
+
+    cookieWindowIsPresent: function () {
+        return this.waitForElementVisible('@cookieWindow')
+    },
 }
 
 module.exports = {
@@ -105,6 +127,8 @@ module.exports = {
         menuToggle: '#nav-toggle',
         menuItems: 'div.nav-wrapper.scroll>nav>ul>li>a',
         menuWindow: '.nav-wrapper.scroll',
-        locationsMenu: ".subnav"
+        locationsMenu: ".subnav",
+        cookieWindow: '#CybotCookiebotDialog',
+        acceptCookie: '#CybotCookiebotDialogBodyButtonAccept'
     }
 }

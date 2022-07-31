@@ -1,13 +1,13 @@
 module.exports = {
     before: function (browser) {
-        console.log('Setting up...');
-        browser.page.home().navigate();
+        console.log('Setting up...')
+        browser.page.home().navigate()
     },
 
     "Menu Verification": async function (browser) {
         const menuOptions = browser.globals.menuOptions
         const pageTitles = browser.globals.pageTitles
-        const homePage = browser.page.home();
+        const homePage = browser.page.home()
 
         let actualOptions = await homePage.getAllMenuOptions()
         browser.assert.ok(actualOptions.length == 6, "array has length of 6")
@@ -18,7 +18,7 @@ module.exports = {
     },
 
     after: function (browser) {
-        console.log('Closing down...');
-        browser.quit();
+        console.log('Closing down...')
+        browser.quit()
     }
 }
